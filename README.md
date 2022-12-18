@@ -18,7 +18,7 @@ We identified circulating protein mediators of the effect of obesity on COVID-19
 
 #### Step 2 MR: Identifying the effect of BMI-driven proteins on COVID-19 severity
 · The COVID-19 severity outcomes consists of two outcomes: critically ill COVID-19 (HGIr7_EUR_A2) and COVID-19 hospitalization (HGIr7_EUR_B2).  
-⋅ In each directory, you can run `01.MR.R` in parallel using `01.run_MR_in_parallel.sh`. This performs MR analyses for each protein using PBS array jobs (You may use slurm array jobs instead). To run this script, You have to provide a nested list of pQTL path of BMI-driven proteins, identified in Step 1 MR (replace `/scratch/richards/satoshi.yoshiji/09.proMR/14.BMI_noMHC_proxy/2.2.proteins_for_step2_without_reverse/pQTL_batch/listbatch.txt` with your paths).
+⋅ In each directory, you can run `01.MR.R` in parallel using `01.run_MR_in_parallel.sh`. This performs MR analyses for each protein using PBS array jobs (You may use slurm array jobs instead). To run this script, You have to provide a nested list of pQTL path of BMI-driven proteins, identified in Step 1 MR (replace `/scratch/richards/satoshi.yoshiji/09.proMR/14.BMI_noMHC_proxy/2.2.proteins_for_step2_without_reverse/pQTL_batch/listbatch.txt` with your paths).  
 ⋅ `02.summarize_mr_results.sh` will collect the MR results.  
 
 #### Colocalization
