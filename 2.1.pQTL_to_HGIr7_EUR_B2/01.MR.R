@@ -47,6 +47,8 @@ formatted_outcome <- format_data(outcome_GWAS, snps = exp_dat$SNP, type="outcome
 formatted_outcome$id.outcome <- 'outcome'
 formatted_outcome %<>% mutate(samplesize = ncase + ncontrol)
 
+# For proxy search, snappy v1.0 was used (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
+
 # harmonize
 exp_dat_outcome <-harmonise_data(exposure_dat=exp_dat, outcome_dat=formatted_outcome)
 # exclude rare variants
