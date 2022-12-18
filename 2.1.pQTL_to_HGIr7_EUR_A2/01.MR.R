@@ -37,7 +37,7 @@ exp_dat <- read_exposure_data(filename = exp_path,
                              se_col = 'se',
                              effect_allele_col = 'Amin',
                              other_allele_col = 'Amaj',
-							               eaf_col = 'MAF',
+			     eaf_col = 'MAF',
                              pval_col = 'pval')
 exp_dat$samplesize <- 35559 
 
@@ -46,6 +46,8 @@ formatted_outcome <- format_data(outcome_GWAS, snps = exp_dat$SNP, type="outcome
                              effect_allele_col = "ALT", other_allele_col = "REF", pval_col = "all_inv_var_meta_p", chr_col = "seqnames", pos_col = "start", ncase_col = 'all_inv_var_meta_cases', ncontrol = 'all_inv_var_meta_controls')
 formatted_outcome$id.outcome <- 'outcome'
 formatted_outcome %<>% mutate(samplesize = ncase + ncontrol)
+
+# For proxy search, snappy v1.0 was used (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
 
 # harmonize
 exp_dat_outcome <-harmonise_data(exposure_dat=exp_dat, outcome_dat=formatted_outcome)
