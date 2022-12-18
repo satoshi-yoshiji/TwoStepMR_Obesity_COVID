@@ -40,6 +40,8 @@ formatted_outcome <- format_data(outcome_GWAS, snps = exp_dat$SNP, type="outcome
                                  effect_allele_col = "ALT", other_allele_col = "REF", pval_col = "pval", chr_col = "seqnames", pos_col = "start")
 formatted_outcome$id.outcome <- 'outcome'
 
+# For proxy search, snappy v1.0 was used (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
+
 # harmonize
 exp_dat_outcome <-harmonise_data(exposure_dat=exp_dat, outcome_dat=formatted_outcome)
 
