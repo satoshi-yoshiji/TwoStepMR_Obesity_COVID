@@ -26,6 +26,8 @@ protname <- args[2]
 #outcome_path <- '/scratch/richards/public/decode_proteomics_2021/6342_10_NPNT_Nephronectin.txt.gz'
 #protname <- '6342_10_NPNT_Nephronectin'
 
+# For proxy search, snappy v1.0 was used (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
+
 # standardize protein name
 protname <- paste0(strsplit(protname,'_')[[1]][3], '.',  strsplit(protname,'_')[[1]][1], '_', strsplit(protname, '_')[[1]][2]) # e.g.m "NPNT.6342_10"
 
