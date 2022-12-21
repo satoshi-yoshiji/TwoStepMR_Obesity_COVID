@@ -2,7 +2,6 @@ library(vroom)
 library(tidyverse)
 library(magrittr)
 
-setwd("/scratch/richards/satoshi.yoshiji/09.proMR/14.BMI_noMHC_proxy/0.BMI_no_MHC_proxy/")
 system('mkdir -p output/')
 
 ########################
@@ -45,7 +44,7 @@ njoin <- left_join(nsum2, hetero2, by='protein') %>% left_join(., pleio2, by = '
 njoin2 <- left_join(njoin, nsum2_median, by='protein') %>% left_join(., nsum2_mode, by = 'protein') %>% left_join(., nsum2_egger, by = 'protein') # nested left njoin
 
 # remove duplicated (to ensure there is no duplicated protein)
-step1mr_wo_reverse <- njoin2 %>% group_by(protein) %>% arrange(pval) %>% filter(!duplicated(protein))
+njoin3 <- njoin2 %>% group_by(protein) %>% arrange(pval) %>% filter(!duplicated(protein))
 
 ########################
 # annotate pass or not
@@ -151,7 +150,7 @@ reverse_join4 %<>% mutate(Pleiotropy_test = case_when(pval.egger_intercept< 0.05
 reverse_join5 <- reverse_join4 %<>% mutate(Sensitivity_test = case_when((Heterogeneity_test == 'Pass' | Heterogeneity_test == 'NA') & (Pleiotropy_test == 'Pass' | Pleiotropy_test == 'NA') ~ 'Pass',
                                                        TRUE ~ 'Fail'))
 # count
-table(reverse_sum[c('Significance', 'Sensitivity_test')])
+table(reverse_join5[c('Significance', 'Sensitivity_test')])
 
 # finally, make a list of proteins with reverse causation
 revese_protein <- reverse_join5 %>% filter(Significance == 'Bonferroni' & Sensitivity_test == 'Pass') %>% dplyr::select(protein) 
