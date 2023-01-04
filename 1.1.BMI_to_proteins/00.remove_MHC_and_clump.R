@@ -6,7 +6,7 @@ library(ieugwasr)
 ################
 # BMI GWAS
 # Donwloaded from https://portals.broadinstitute.org/collaboration/giant/images/c/c8/Meta-analysis_Locke_et_al%2BUKBiobank_2018_UPDATED.txt.gz
-# Even though these SNPs are already conditionally independent, we took a conservative approach and performed additional clumping to ensure their independence
+# Even though these SNPs are already conditionally independent, we took a conservative approach and performed conventional clumping
 ################
 gwas <- vroom('/scratch/richards/satoshi.yoshiji/09.proMR/01.exposure/BMI/Meta-analysis_Locke_et_al+UKBiobank_2018_top_941_from_COJO_analysis_UPDATED.txt')
 
