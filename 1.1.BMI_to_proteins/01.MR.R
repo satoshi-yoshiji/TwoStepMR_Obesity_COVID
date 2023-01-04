@@ -2,7 +2,7 @@ library(TwoSampleMR)
 library(ggplot2)
 
 # working directory
-wd <- "/scratch/richards/satoshi.yoshiji/09.proMR/14.BMI_noMHC_proxy/0.BMI_no_MHC_proxy/"
+wd <- "/scratch/richards/satoshi.yoshiji/github/TwostepMR_obesity_COVID/1.1.BMI_to_proteins/"
 setwd(wd)
 output_dir <- paste0(wd, "output/")
 
@@ -23,10 +23,10 @@ args <- commandArgs(trailingOnly=TRUE)
 outcome_path <- args[1]
 protname <- args[2]
 # e.g.,
-#outcome_path <- '/scratch/richards/public/decode_proteomics_2021/6342_10_NPNT_Nephronectin.txt.gz'
-#protname <- '6342_10_NPNT_Nephronectin'
+# outcome_path <- '/scratch/richards/public/decode_proteomics_2021/6342_10_NPNT_Nephronectin.txt.gz'
+# protname <- '6342_10_NPNT_Nephronectin'
 
-# For proxy search, snappy v1.0 was used (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
+# For proxy search, you may use snappy v1.0 (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
 
 # standardize protein name
 protname <- paste0(strsplit(protname,'_')[[1]][3], '.',  strsplit(protname,'_')[[1]][1], '_', strsplit(protname, '_')[[1]][2]) # e.g.m "NPNT.6342_10"

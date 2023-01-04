@@ -7,22 +7,18 @@ library(vroom)
 # Reverse MR  (proteins to BMI)
 #####################
 
-wd <- "/scratch/richards/satoshi.yoshiji/09.proMR/14.BMI_noMHC_proxy/2.1.pQTL_to_BMI_opengwas/" 
+wd <- "/scratch/richards/satoshi.yoshiji/github/TwostepMR_obesity_COVID/1.2.BMI_reverse/" 
 setwd(wd)
 output_dir <- paste0(wd, "output/")
 
 # read the outcome GWAS
-outcome_path <- '/scratch/richards/satoshi.yoshiji/09.proMR/01.exposure/BMI_opengwas/ukb-b-19953.tsv' # Use UKB BMI here
+outcome_path <- '/scratch/richards/satoshi.yoshiji/09.proMR/01.exposure/BMI_opengwas/ukb-b-19953.tsv' # Use UKB BMI here 
 outcome_GWAS <- vroom(outcome_path)
 outcome_GWAS <- outcome_GWAS %>% dplyr::rename(SNP = ID) 
 
 args <- commandArgs(trailingOnly=TRUE) 
 exp_path <- args[1]
 protname <- args[2]
-
-# example
-# exp_path <- '/scratch/richards/satoshi.yoshiji/11.pQTL/01.pQTL_Tianyuan/decodeaptamer_sep/NPNT.6342_10.tsv'
-# protname <- 'NPNT.6342_10'
 
 #exposure
 exp_dat <- read_exposure_data(filename = exp_path,
@@ -40,7 +36,7 @@ formatted_outcome <- format_data(outcome_GWAS, snps = exp_dat$SNP, type="outcome
                                  effect_allele_col = "ALT", other_allele_col = "REF", pval_col = "pval", chr_col = "seqnames", pos_col = "start")
 formatted_outcome$id.outcome <- 'outcome'
 
-# For proxy search, snappy v1.0 was used (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
+# For proxy search, you may use snappy v1.0 (https://gitlab.com/richards-lab/vince.forgetta/snappy/-/blob/master/snappy)
 
 # harmonize
 exp_dat_outcome <-harmonise_data(exposure_dat=exp_dat, outcome_dat=formatted_outcome)

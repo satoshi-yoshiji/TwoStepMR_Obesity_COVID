@@ -3,7 +3,7 @@ library(magrittr)
 library(tidyverse)
 library(vroom)
 
-wd <- "/scratch/richards/satoshi.yoshiji/09.proMR/14.BMI_noMHC_proxy/3.pQTL_to_HGIr7_EUR_A2/" #!!! don't forget the slash (/)at the end of the full path
+wd <- "/scratch/richards/satoshi.yoshiji/github/TwostepMR_obesity_COVID/2.1.pQTL_to_HGIr7_EUR_A2/"
 setwd(wd)
 
 output_dir <- paste0(wd, "output/")
@@ -24,10 +24,6 @@ exp_path <- args[1]
 protname <- args[2]
 
 print(protname)
-
-# example
-# exp_path <- '/scratch/richards/satoshi.yoshiji/11.pQTL/01.pQTL_Tianyuan/decodeaptamer_sep/NPNT.6342_10.tsv'
-# protname <- 'NPNT.6342_10'
 
 #exposure
 exp_dat <- read_exposure_data(filename = exp_path,
@@ -51,7 +47,6 @@ formatted_outcome %<>% mutate(samplesize = ncase + ncontrol)
 
 # harmonize
 exp_dat_outcome <-harmonise_data(exposure_dat=exp_dat, outcome_dat=formatted_outcome)
-# exclude rare variants
 exp_dat_outcome %<>% filter((eaf.exposure > 0.001 & eaf.exposure < 0.999) & (eaf.outcome > 0.001 & eaf.outcome < 0.999)) 
 
 exp_data_outcome_name <- paste0(output_dir,"harmonized/", protname, ".harmonized.txt")

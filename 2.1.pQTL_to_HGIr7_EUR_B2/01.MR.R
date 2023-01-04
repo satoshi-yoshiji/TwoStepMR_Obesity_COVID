@@ -25,10 +25,6 @@ protname <- args[2]
 
 print(protname)
 
-# example
-# exp_path <- '/scratch/richards/satoshi.yoshiji/11.pQTL/03.cispQTL_decode2021_sep/NPNT.6342_10.tsv'
-# protname <- 'NPNT.6342_10'
-
 #exposure
 exp_dat <- read_exposure_data(filename = exp_path,
                              sep='\t',
