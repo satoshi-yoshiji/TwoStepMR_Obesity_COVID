@@ -24,7 +24,7 @@ We identified circulating protein mediators of the effect of obesity on COVID-19
 · cis-pQTL used in step 2 MR can be found in Supplementary Table 2 of the deCODE study (Ferkingstad, E. et al. Nat Genet 2021).
 ⋅ `02.summarize_mr_results.sh` will collect the MR results.  
 
-#### Colocalization
+#### Colocalization: 
 · The colocalization analyses evaluate whether cis-pQTL of the putatively causal proteins (NPNT and HSD17B14) and COVID-19 severity outcomes share a single causal variant.  
 · `1.coloc_grid_NPNT_pQTL_and_HGIr7_A2.loop.R` performs colocalization analysis of cis-pQTL for NPNT with critically ill COVID-19  
 · `2.coloc_grid_NPNT_pQTL_and_HGIr7_B2.loop.R` performs colocalization analysis of cis-pQTL for NPNT with COVID-19 hospitalization  
