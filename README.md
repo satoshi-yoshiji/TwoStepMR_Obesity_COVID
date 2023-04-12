@@ -32,5 +32,5 @@ We identified circulating protein mediators of the effect of obesity on COVID-19
 · `4.coloc_grid_HSD17B14_pQTL_and_HGIr7_B2.loop.R` performs colocalization analysis of cis-pQTL for HSD17B14 with COVID-19 hospitalization  
 · Note that grid.csv provides parameters for prior probabilities for coloc.
 
-For more information, please refer to our publication at Nature Metabolism (Nat Metab 5, 248–264 (2023). https://doi.org/10.1038/s42255-023-00742-w
+If you use these codes, please cite our publication (Nat Metab 5, 248–264 (2023). https://doi.org/10.1038/s42255-023-00742-w
 
